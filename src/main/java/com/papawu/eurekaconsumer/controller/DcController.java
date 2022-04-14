@@ -1,6 +1,7 @@
 package com.papawu.eurekaconsumer.controller;
 
 import com.papawu.eurekaconsumer.inter.DcClient;
+import com.papawu.eurekaconsumer.service.ConsumerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -13,10 +14,12 @@ public class DcController {
 
 //    @Autowired
 //    LoadBalancerClient loadBalancerClient;
+//    @Autowired
+//    RestTemplate restTemplate;
+//    @Autowired
+//    DcClient dcClient;
     @Autowired
-    RestTemplate restTemplate;
-    @Autowired
-    DcClient dcClient;
+    ConsumerService consumerService;
 
     @GetMapping("/consumer")
     public String dc() {
@@ -25,6 +28,7 @@ public class DcController {
 //        System.out.println(url);
 //        return restTemplate.getForObject(url, String.class);
 //        return restTemplate.getForObject("http://eureka-client/dc", String.class);
-        return dcClient.consumer();
+//        return dcClient.consumer();
+        return consumerService.consumer();
     }
 }
