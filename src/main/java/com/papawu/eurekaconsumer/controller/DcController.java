@@ -2,6 +2,7 @@ package com.papawu.eurekaconsumer.controller;
 
 import com.papawu.eurekaconsumer.inter.DcClient;
 import com.papawu.eurekaconsumer.service.ConsumerService;
+import io.swagger.annotations.ApiOperation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.ServiceInstance;
 import org.springframework.cloud.client.loadbalancer.LoadBalancerClient;
@@ -21,6 +22,7 @@ public class DcController {
     @Autowired
     ConsumerService consumerService;
 
+    @ApiOperation(value = "学习cloud", notes="获取服务信息")
     @GetMapping("/consumer")
     public String dc() {
 //        ServiceInstance serviceInstance = loadBalancerClient.choose("eureka-client");
